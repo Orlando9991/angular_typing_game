@@ -1,0 +1,24 @@
+<div class="columns is-centered mt-6">
+  <div class="card has-text-centered" style="width: 30rem;">
+    <div class="card-header">
+      <p class="card-header-title is-centered has-background-link-dark has-text-primary-light">
+        {{title}}
+      </p>
+    </div>
+    <div class="card-content">
+      <div class="content">
+        <p id="sentence">{{ randomText }}</p>
+        <input class="input" id="user_input" [disabled]="disableTyping" [value]="inputTyping" (input)="onInput($any($event.target).value)" type="text" placeholder="Text input">
+        <div *ngIf="disableTyping">
+          <button (click)="startGame()">start</button>
+        </div>
+        <div *ngIf="!disableTyping">
+          <p>timer: {{currentTimer}} ms</p>
+        </div>
+        <div  class="mt-3" *ngIf="finishCountDown">
+          <h4>{{outputResult}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
