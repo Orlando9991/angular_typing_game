@@ -25,15 +25,16 @@ export class AutomaticComponent {
   }
 
   startGame(){
+    this.disableTyping = false;
+    this.finishCountDown = false;
     this.successTyping = false;
     this.generateSentence();
     this.startCountDown();
   }
 
   startCountDown(){
-    this.finishCountDown = false;
     let everySecond = 10;
-    this.currentTimer = this.timer-1;
+    this.currentTimer = this.timer;
     let countdown = setInterval(()=>{
       if(this.currentTimer>0){
         if(this.successTyping){
@@ -48,7 +49,6 @@ export class AutomaticComponent {
         return;
       }
     }, everySecond);
-    this.disableTyping = false;
   }
 
   onInput(input: string){

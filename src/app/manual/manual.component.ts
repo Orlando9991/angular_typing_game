@@ -25,9 +25,8 @@ export class ManualComponent {
   }
 
   startCountDown(){
-    this.finishCountDown = false;
     let everySecond = 10;
-    this.currentTimer = this.timer-1;
+    this.currentTimer = this.timer;
     let countdown = setInterval(()=>{
       if(this.currentTimer>0){
         if(this.inputTyping == this.randomText){
@@ -44,10 +43,11 @@ export class ManualComponent {
         return;
       }
     }, everySecond);
-    this.disableTyping = false;
   }
 
   startGame(){
+    this.disableTyping = false;
+    this.finishCountDown = false;
     this.generateSentence();
     this.startCountDown();
   }
